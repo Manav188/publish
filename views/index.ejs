@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title><%=title%></title>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+
+</head>
+<body>
+    <div class="container">
+        <h1 class="'text-center">
+            Bank Info Using IFSC
+        </h1>
+        <form action="/ifsc" method="post" id="form" >
+            <div class="form-group">
+                <label>IFSC Code:</label>
+                <input type="text" class="form-control" required name="ifsc" placeholder="IFSC" >
+            </div>
+            <div class="form-group">
+                <button class="btn btn-danger btn-block">
+                    Get Info
+                </button>
+            </div>
+            <%if (data) { %>
+                <table class="table table-striped">
+                    <thead>
+                        <tr>
+                            <th>District</th>
+                            <th>Branch</th>
+                            <th>Micr Code</th>
+                            <th>State</th>
+                            <th>Address</th>
+                            <th>Contact</th>
+                            <th>Bank</th>
+                            <th>Bank Code</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><%=response.DISTRICT%></td>
+                            <td><%=response.BRANCH%></td>
+                            <td><%=response.MICR%></td>
+                            <td><%=response.STATE%></td>
+                            <td><%=response.ADDRESS%></td>
+                            <td><%=response.CONTACT%></td>
+                            <td><%=response.BANK%></td>
+                            <td><%=response.BANKCODE%></td>
+                        </tr>
+                    </tbody>
+                </table>
+            <% } %>
+        </form>
+    </div>
+</body>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+</html>
